@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dew Drops Pods — Precision clean. Naturally gentle.</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --teal: #0e6655;
+            --teal-mid: #1a8a73;
+            --aqua: #2bbfa5;
+            --cream: #f6f1ea;
+            --warm: #fdf9f3;
+            --gold: #c8963e;
+            --ink: #18302b;
+            --ink-mid: #3a5a52;
+            --white: #fff;
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Outfit', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--warm);
+            color: var(--ink);
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-family: var(--serif);
+            font-weight: 600;
+            color: var(--teal);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ink-mid);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .nav-cta {
+            background: var(--teal);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 7rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 2.8rem;
+        }
+
+        .hero-tagline {
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--ink-mid);
+        }
+
+        .hero-sub {
+            margin-top: 1rem;
+            max-width: 400px;
+            margin-inline: auto;
+            font-size: 0.9rem;
+            color: var(--ink-mid);
+        }
+
+        .hero-actions {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--teal);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--teal);
+            color: var(--teal);
+        }
+
+        /* TRUST */
+        .trust {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.85rem;
+        }
+
+        /* SECTION */
+        section {
+            padding: 3rem 1.5rem;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        /* FEATURES */
+        .features-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        /* PRICING */
+        .pricing-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            text-align: center;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--teal);
+            color: white;
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .cta a {
+            background: white;
+            color: var(--teal);
+            padding: 12px 24px;
+            display: inline-block;
+            margin-top: 1rem;
+            border-radius: 30px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.8rem;
+            background: #111;
+            color: #aaa;
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                right: 20px;
+                top: 60px;
+                background: white;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo">Dew Drops Pods</div>
+        <div class="menu-toggle">☰</div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+            <a href="#cta" class="nav-cta">Buy</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Dew Drops Pods</h1>
+        <p class="hero-tagline">Precision clean. Naturally gentle.</p>
+        <p class="hero-sub">
+            One pod. Zero guesswork. Tough on stains, gentle on skin.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#pricing" class="btn btn-primary">Shop Now</a>
+            <a href="#features" class="btn btn-outline">Learn More</a>
+        </div>
+    </section>
+
+    <!-- TRUST -->
+    <div class="trust">★ 4.8/5 from 2,000+ happy customers</div>
+
+    <!-- FEATURES -->
+    <section id="features">
+        <h2 class="section-title">Why Dew Drops?</h2>
+
+        <div class="features-grid">
+            <div class="card">🌿 No Harsh Chemicals</div>
+            <div class="card">✨ Powerful Cleaning</div>
+            <div class="card">🌸 Fresh Fragrance</div>
+            <div class="card">🔬 Precision Pods</div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+        <h2 class="section-title">Choose your pack</h2>
+
+        <div class="pricing-grid">
+            <div class="card">
+                <h3>Starter</h3>
+                <p>15 Pods</p>
+                <div class="price">₹299</div>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+
+            <div class="card">
+                <h3>Family</h3>
+                <p>30 Pods</p>
+                <div class="price">₹549</div>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+
+            <div class="card">
+                <h3>Value</h3>
+                <p>60 Pods</p>
+                <div class="price">₹999</div>
+                <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <h2 class="section-title">FAQs</h2>
+
+        <p><strong>Is it safe for skin?</strong><br>Yes, hypoallergenic.</p>
+        <br>
+        <p><strong>Works in all machines?</strong><br>Yes.</p>
+        <br>
+        <p><strong>Need extra detergent?</strong><br>No.</p>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="cta">
+        <h2>Switch to smarter laundry</h2>
+        <p>No mess. No measuring.</p>
+        <a href="#">Try Now → ₹299</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Dew Drops Pods
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav-links');
+
+        toggle.onclick = () => nav.classList.toggle('active');
+    </script>
+
+</body>
+
+</html>
