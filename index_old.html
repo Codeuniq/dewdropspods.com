@@ -2,1297 +2,333 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dew Drops Pods — Precision Clean. Naturally Gentle.</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap"
-        rel="stylesheet" />
-    <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --teal: #0e6655;
-            --teal-mid: #1a8a73;
-            --teal-lt: #d0ede8;
-            --aqua: #2bbfa5;
-            --cream: #f6f1ea;
-            --warm: #fdf9f3;
-            --gold: #c8963e;
-            --gold-lt: #f5e8d0;
-            --ink: #18302b;
-            --ink-mid: #3a5a52;
-            --mist: #e8f4f1;
-            --white: #ffffff;
-            --serif: 'Cormorant Garamond', Georgia, serif;
-            --sans: 'Outfit', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--sans);
-            background: var(--warm);
-            color: var(--ink);
-            overflow-x: hidden;
-        }
-
-        /* ── NAV ── */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.1rem 3rem;
-            background: rgba(246, 241, 234, 0.88);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(14, 102, 85, 0.1);
-        }
-
-        .nav-logo {
-            font-family: var(--serif);
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: var(--teal);
-            letter-spacing: 0.02em;
-        }
-
-        .nav-logo span {
-            color: var(--gold);
-            font-style: italic;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.2rem;
-        }
-
-        .nav-links a {
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--ink-mid);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--teal);
-        }
-
-        .nav-cta {
-            background: var(--teal);
-            color: var(--white) !important;
-            padding: 0.5rem 1.4rem;
-            border-radius: 2rem;
-            transition: background 0.2s !important;
-        }
-
-        .nav-cta:hover {
-            background: var(--teal-mid) !important;
-            color: var(--white) !important;
-        }
-
-        /* ── HERO ── */
-        .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            padding: 7rem 3rem 4rem;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--warm) 55%, var(--mist) 100%);
-        }
-
-        .hero-bg-circle {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero-bg-circle.c1 {
-            width: 520px;
-            height: 520px;
-            right: -80px;
-            top: -100px;
-            background: radial-gradient(circle, rgba(43, 191, 165, 0.13) 0%, transparent 70%);
-        }
-
-        .hero-bg-circle.c2 {
-            width: 300px;
-            height: 300px;
-            left: 30%;
-            bottom: 0;
-            background: radial-gradient(circle, rgba(200, 150, 62, 0.08) 0%, transparent 70%);
-        }
-
-        .hero-left {
-            z-index: 2;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--gold-lt);
-            color: var(--gold);
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            padding: 0.4rem 1rem;
-            border-radius: 2rem;
-            margin-bottom: 1.8rem;
-        }
-
-        .hero-badge::before {
-            content: '';
-            display: block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gold);
-        }
-
-        .hero-title {
-            font-family: var(--serif);
-            font-size: clamp(3.4rem, 5.5vw, 5rem);
-            font-weight: 300;
-            line-height: 1.07;
-            color: var(--ink);
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-title em {
-            font-style: italic;
-            color: var(--teal);
-        }
-
-        .hero-title .brand-word {
-            display: block;
-            font-weight: 600;
-            color: var(--ink);
-        }
-
-        .hero-tagline {
-            font-family: var(--serif);
-            font-size: 1.22rem;
-            font-style: italic;
-            color: var(--ink-mid);
-            margin: 1.4rem 0 2.4rem;
-            letter-spacing: 0.01em;
-            position: relative;
-            padding-left: 1.2rem;
-        }
-
-        .hero-tagline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 3px;
-            height: 70%;
-            background: var(--aqua);
-            border-radius: 2px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: var(--teal);
-            color: var(--white);
-            padding: 0.85rem 2.2rem;
-            border-radius: 3rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: background 0.22s, transform 0.18s;
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            background: var(--teal-mid);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--teal);
-            padding: 0.85rem 2.2rem;
-            border-radius: 3rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            text-decoration: none;
-            border: 1.5px solid var(--teal);
-            cursor: pointer;
-            transition: background 0.22s, color 0.22s;
-            display: inline-block;
-        }
-
-        .btn-outline:hover {
-            background: var(--teal);
-            color: var(--white);
-        }
-
-        /* Pod visual */
-        .hero-right {
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .pod-scene {
-            position: relative;
-            width: 380px;
-            height: 420px;
-        }
-
-        .pod-glow {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle, rgba(43, 191, 165, 0.22) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: pulseGlow 3.5s ease-in-out infinite;
-        }
-
-        @keyframes pulseGlow {
-
-            0%,
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.7;
-            }
-
-            50% {
-                transform: translate(-50%, -50%) scale(1.15);
-                opacity: 1;
-            }
-        }
-
-        .pod-main {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -52%);
-            width: 160px;
-            height: 160px;
-            animation: floatPod 4s ease-in-out infinite;
-        }
-
-        @keyframes floatPod {
-
-            0%,
-            100% {
-                transform: translate(-50%, -52%) translateY(0);
-            }
-
-            50% {
-                transform: translate(-50%, -52%) translateY(-16px);
-            }
-        }
-
-        /* SVG pod */
-        .pod-svg {
-            width: 160px;
-            height: 160px;
-        }
-
-        /* Bubbles */
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(43, 191, 165, 0.18);
-            border: 1px solid rgba(43, 191, 165, 0.3);
-            animation: rise linear infinite;
-        }
-
-        @keyframes rise {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 0.7;
-            }
-
-            100% {
-                transform: translateY(-280px) scale(0.3);
-                opacity: 0;
-            }
-        }
-
-        .b1 {
-            width: 18px;
-            height: 18px;
-            left: 60px;
-            bottom: 40px;
-            animation-duration: 3.8s;
-            animation-delay: 0s;
-        }
-
-        .b2 {
-            width: 10px;
-            height: 10px;
-            left: 110px;
-            bottom: 30px;
-            animation-duration: 4.5s;
-            animation-delay: 1.1s;
-        }
-
-        .b3 {
-            width: 14px;
-            height: 14px;
-            left: 230px;
-            bottom: 60px;
-            animation-duration: 3.2s;
-            animation-delay: 0.6s;
-        }
-
-        .b4 {
-            width: 8px;
-            height: 8px;
-            left: 180px;
-            bottom: 20px;
-            animation-duration: 5s;
-            animation-delay: 1.8s;
-        }
-
-        .b5 {
-            width: 20px;
-            height: 20px;
-            left: 30px;
-            bottom: 80px;
-            animation-duration: 4.1s;
-            animation-delay: 2.3s;
-        }
-
-        .b6 {
-            width: 6px;
-            height: 6px;
-            left: 280px;
-            bottom: 50px;
-            animation-duration: 3.6s;
-            animation-delay: 0.4s;
-        }
-
-        /* Floating pills */
-        .hero-pill {
-            position: absolute;
-            background: var(--white);
-            border: 1px solid rgba(14, 102, 85, 0.12);
-            border-radius: 1.5rem;
-            padding: 0.55rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--ink);
-            box-shadow: 0 4px 24px rgba(14, 102, 85, 0.08);
-            white-space: nowrap;
-            animation: floatPill 5s ease-in-out infinite;
-        }
-
-        @keyframes floatPill {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        .hero-pill .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .pill-1 {
-            top: 55px;
-            left: 0;
-            animation-delay: 0s;
-        }
-
-        .pill-2 {
-            top: 120px;
-            right: -20px;
-            animation-delay: 1.5s;
-        }
-
-        .pill-3 {
-            bottom: 90px;
-            left: -10px;
-            animation-delay: 0.8s;
-        }
-
-        /* ── TRUST STRIP ── */
-        .trust-strip {
-            background: var(--teal);
-            color: var(--white);
-            padding: 1rem 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-size: 0.83rem;
-            font-weight: 400;
-            letter-spacing: 0.03em;
-            opacity: 0.95;
-        }
-
-        .trust-icon {
-            font-size: 1.1rem;
-        }
-
-        /* ── SECTION BASE ── */
-        section {
-            padding: 5.5rem 3rem;
-        }
-
-        .section-label {
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--aqua);
-            margin-bottom: 0.9rem;
-        }
-
-        .section-title {
-            font-family: var(--serif);
-            font-size: clamp(2rem, 3.5vw, 3rem);
-            font-weight: 300;
-            line-height: 1.15;
-            color: var(--ink);
-            margin-bottom: 1rem;
-        }
-
-        .section-title strong {
-            font-weight: 600;
-        }
-
-        .section-sub {
-            font-size: 1rem;
-            color: var(--ink-mid);
-            line-height: 1.75;
-            max-width: 520px;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* ── FEATURES ── */
-        .features {
-            background: var(--white);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            margin-top: 3.5rem;
-        }
-
-        .feat-card {
-            background: var(--warm);
-            border: 1px solid rgba(14, 102, 85, 0.09);
-            border-radius: 1.25rem;
-            padding: 2rem 1.8rem;
-            transition: transform 0.22s, box-shadow 0.22s;
-        }
-
-        .feat-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(14, 102, 85, 0.1);
-        }
-
-        .feat-icon-wrap {
-            width: 52px;
-            height: 52px;
-            border-radius: 1rem;
-            background: var(--teal-lt);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.2rem;
-            font-size: 1.4rem;
-        }
-
-        .feat-title {
-            font-family: var(--serif);
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: 0.55rem;
-        }
-
-        .feat-desc {
-            font-size: 0.88rem;
-            color: var(--ink-mid);
-            line-height: 1.72;
-        }
-
-        /* ── HOW IT WORKS ── */
-        .how {
-            background: var(--mist);
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3.5rem;
-            position: relative;
-        }
-
-        .steps::before {
-            content: '';
-            position: absolute;
-            top: 32px;
-            left: calc(16.66% + 16px);
-            right: calc(16.66% + 16px);
-            height: 1.5px;
-            background: linear-gradient(90deg, var(--aqua), var(--teal));
-            z-index: 0;
-        }
-
-        .step {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            padding: 0 1rem;
-        }
-
-        .step-num {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: var(--white);
-            border: 2px solid var(--aqua);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.4rem;
-            font-family: var(--serif);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--teal);
-            box-shadow: 0 4px 18px rgba(43, 191, 165, 0.15);
-        }
-
-        .step-title {
-            font-family: var(--serif);
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: 0.5rem;
-        }
-
-        .step-desc {
-            font-size: 0.86rem;
-            color: var(--ink-mid);
-            line-height: 1.7;
-        }
-
-        /* ── COMPAT BANNER ── */
-        .compat {
-            background: var(--ink);
-            color: var(--white);
-            padding: 4rem 3rem;
-        }
-
-        .compat-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 3rem;
-        }
-
-        .compat-title {
-            font-family: var(--serif);
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            font-weight: 300;
-            line-height: 1.2;
-            margin-bottom: 0.8rem;
-        }
-
-        .compat-title strong {
-            color: var(--aqua);
-            font-weight: 600;
-        }
-
-        .compat-sub {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.7;
-        }
-
-        .machine-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .machine-item {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 0.85rem;
-            padding: 1rem 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .machine-ico {
-            font-size: 1.3rem;
-        }
-
-        .machine-name {
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.35;
-        }
-
-        .machine-name small {
-            display: block;
-            font-weight: 300;
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.45);
-        }
-
-        /* ── SHIPPING ── */
-        .shipping {
-            background: var(--gold-lt);
-        }
-
-        .shipping-inner {
-            max-width: 860px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .ship-label {
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .ship-title {
-            font-family: var(--serif);
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            font-weight: 600;
-            color: var(--ink);
-            line-height: 1.15;
-            margin-bottom: 0.7rem;
-        }
-
-        .ship-title span {
-            color: var(--gold);
-            font-style: italic;
-        }
-
-        .ship-desc {
-            font-size: 0.9rem;
-            color: var(--ink-mid);
-            line-height: 1.7;
-        }
-
-        .ship-badge {
-            background: var(--gold);
-            color: var(--white);
-            font-family: var(--serif);
-            font-size: 1.1rem;
-            font-weight: 600;
-            padding: 1.6rem 2rem;
-            border-radius: 1.2rem;
-            text-align: center;
-            white-space: nowrap;
-            line-height: 1.4;
-        }
-
-        .ship-badge .big {
-            font-size: 2rem;
-            display: block;
-            line-height: 1.1;
-        }
-
-        /* ── TESTIMONIAL-STYLE ASSURANCE ── */
-        .assurance {
-            background: var(--white);
-            padding: 5rem 3rem;
-        }
-
-        .assurance-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3.5rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .assure-item {
-            text-align: center;
-            padding: 2rem 1.5rem;
-        }
-
-        .assure-num {
-            font-family: var(--serif);
-            font-size: 3rem;
-            font-weight: 600;
-            color: var(--teal);
-            line-height: 1;
-            margin-bottom: 0.3rem;
-        }
-
-        .assure-label {
-            font-size: 0.85rem;
-            color: var(--ink-mid);
-            line-height: 1.5;
-        }
-
-        .assure-divider {
-            width: 1px;
-            background: rgba(14, 102, 85, 0.12);
-            margin: auto;
-        }
-
-        /* ── CTA ── */
-        .cta-section {
-            background: linear-gradient(135deg, var(--teal) 0%, #0b4f41 100%);
-            padding: 6rem 3rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-bg {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .cta-bg.b1 {
-            width: 400px;
-            height: 400px;
-            top: -150px;
-            left: -100px;
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .cta-bg.b2 {
-            width: 300px;
-            height: 300px;
-            bottom: -100px;
-            right: -60px;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .cta-section h2 {
-            font-family: var(--serif);
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            font-weight: 300;
-            color: var(--white);
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .cta-section h2 em {
-            font-style: italic;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.75);
-        }
-
-        .cta-section p {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 480px;
-            margin: 0 auto 2.4rem;
-            line-height: 1.7;
-            position: relative;
-        }
-
-        .btn-white {
-            background: var(--white);
-            color: var(--teal);
-            padding: 0.95rem 2.6rem;
-            border-radius: 3rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-        }
-
-        .btn-white:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            background: var(--ink);
-            color: rgba(255, 255, 255, 0.5);
-            padding: 2.2rem 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 0.8rem;
-        }
-
-        footer .foot-logo {
-            font-family: var(--serif);
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--white);
-        }
-
-        footer .foot-logo span {
-            color: var(--aqua);
-            font-style: italic;
-        }
-
-        footer .foot-links {
-            display: flex;
-            gap: 1.8rem;
-        }
-
-        footer .foot-links a {
-            color: rgba(255, 255, 255, 0.45);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        footer .foot-links a:hover {
-            color: var(--white);
-        }
-
-        /* ── SCROLL FADE IN ── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            nav {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 6rem 1.5rem 3rem;
-                text-align: center;
-            }
-
-            .hero-tagline::before {
-                display: none;
-            }
-
-            .hero-tagline {
-                padding-left: 0;
-            }
-
-            .hero-actions {
-                justify-content: center;
-            }
-
-            .hero-right {
-                margin-top: 2.5rem;
-            }
-
-            .pod-scene {
-                width: 280px;
-                height: 300px;
-            }
-
-            .pill-1,
-            .pill-2,
-            .pill-3 {
-                display: none;
-            }
-
-            section {
-                padding: 4rem 1.5rem;
-            }
-
-            .steps {
-                grid-template-columns: 1fr;
-            }
-
-            .steps::before {
-                display: none;
-            }
-
-            .compat-inner {
-                grid-template-columns: 1fr;
-            }
-
-            .shipping-inner {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .ship-badge {
-                margin: 0 auto;
-            }
-
-            .assurance-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .assure-divider {
-                width: 60px;
-                height: 1px;
-            }
-
-            footer {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .foot-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-    </style>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Dew Drops Pods — Precision clean. Naturally gentle.</title>
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Outfit:wght@300;400;500;600&display=swap"
+		rel="stylesheet">
+
+	<style>
+		:root {
+			--teal: #0e6655;
+			--teal-mid: #1a8a73;
+			--aqua: #2bbfa5;
+			--cream: #f6f1ea;
+			--warm: #fdf9f3;
+			--gold: #c8963e;
+			--ink: #18302b;
+			--ink-mid: #3a5a52;
+			--white: #fff;
+			--serif: 'Cormorant Garamond', serif;
+			--sans: 'Outfit', sans-serif;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: var(--sans);
+			background: var(--warm);
+			color: var(--ink);
+		}
+
+		/* NAV */
+		nav {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1rem 2rem;
+			background: rgba(255, 255, 255, 0.9);
+			z-index: 100;
+		}
+
+		.nav-logo {
+			font-family: var(--serif);
+			font-weight: 600;
+			color: var(--teal);
+		}
+
+		.nav-links {
+			display: flex;
+			gap: 1.5rem;
+		}
+
+		.nav-links a {
+			text-decoration: none;
+			color: var(--ink-mid);
+			font-size: 0.8rem;
+			text-transform: uppercase;
+		}
+
+		.nav-cta {
+			background: var(--teal);
+			color: #fff;
+			padding: 6px 14px;
+			border-radius: 20px;
+		}
+
+		.menu-toggle {
+			display: none;
+			font-size: 1.4rem;
+			cursor: pointer;
+		}
+
+		/* HERO */
+		.hero {
+			padding: 7rem 2rem 3rem;
+			text-align: center;
+		}
+
+		.hero h1 {
+			font-family: var(--serif);
+			font-size: 2.8rem;
+		}
+
+		.hero-tagline {
+			margin-top: 1rem;
+			font-style: italic;
+			color: var(--ink-mid);
+		}
+
+		.hero-sub {
+			margin-top: 1rem;
+			max-width: 400px;
+			margin-inline: auto;
+			font-size: 0.9rem;
+			color: var(--ink-mid);
+		}
+
+		.hero-actions {
+			margin-top: 2rem;
+			display: flex;
+			justify-content: center;
+			gap: 1rem;
+		}
+
+		.btn {
+			padding: 10px 20px;
+			border-radius: 30px;
+			text-decoration: none;
+			font-size: 0.9rem;
+		}
+
+		.btn-primary {
+			background: var(--teal);
+			color: white;
+		}
+
+		.btn-outline {
+			border: 1px solid var(--teal);
+			color: var(--teal);
+		}
+
+		/* TRUST */
+		.trust {
+			text-align: center;
+			padding: 1rem;
+			font-size: 0.85rem;
+		}
+
+		/* SECTION */
+		section {
+			padding: 3rem 1.5rem;
+			max-width: 900px;
+			margin: auto;
+		}
+
+		.section-title {
+			font-family: var(--serif);
+			text-align: center;
+			margin-bottom: 1rem;
+		}
+
+		/* FEATURES */
+		.features-grid {
+			display: grid;
+			gap: 1.5rem;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		}
+
+		.card {
+			background: white;
+			padding: 1.5rem;
+			border-radius: 12px;
+			text-align: center;
+		}
+
+		/* PRICING */
+		.pricing-grid {
+			display: grid;
+			gap: 1.5rem;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			text-align: center;
+		}
+
+		.price {
+			font-size: 1.5rem;
+			margin: 10px 0;
+		}
+
+		/* CTA */
+		.cta {
+			background: var(--teal);
+			color: white;
+			text-align: center;
+			padding: 3rem 1.5rem;
+		}
+
+		.cta a {
+			background: white;
+			color: var(--teal);
+			padding: 12px 24px;
+			display: inline-block;
+			margin-top: 1rem;
+			border-radius: 30px;
+		}
+
+		/* FOOTER */
+		footer {
+			text-align: center;
+			padding: 1.5rem;
+			font-size: 0.8rem;
+			background: #111;
+			color: #aaa;
+		}
+
+		/* MOBILE */
+		@media(max-width:768px) {
+			.nav-links {
+				display: none;
+			}
+
+			.menu-toggle {
+				display: block;
+			}
+
+			.nav-links.active {
+				display: flex;
+				flex-direction: column;
+				position: absolute;
+				right: 20px;
+				top: 60px;
+				background: white;
+				padding: 1rem;
+				border-radius: 10px;
+			}
+		}
+	</style>
 </head>
 
 <body>
-    < !-- NAV -->
-        <nav>
-            <div class="nav-logo">Dew <span>Drops</span>Pods</div>
-            <div class="nav-links"><a href="#features">Features</a><a href="#how">How It Works</a><a
-                    href="#shipping">Shipping</a><a href="#cta" class="nav-cta">Order Now</a></div>
-        </nav>
-        < !-- HERO -->
-            <section class="hero">
-                <div class="hero-bg-circle c1"></div>
-                <div class="hero-bg-circle c2"></div>
-                <div class="hero-left">
-                    <div class="hero-badge">Laundry Reinvented</div>
-                    <h1 class="hero-title"><em>Dew</em><span class="brand-word">Drops Pods</span></h1>
-                    <p class="hero-tagline">Precision clean. Naturally gentle.</p>
-                    <div class="hero-actions"><a href="#cta" class="btn-primary">Shop Now</a><a href="#features"
-                            class="btn-outline">See Features</a></div>
-                </div>
-                <div class="hero-right">
-                    <div class="pod-scene">
-                        <div class="pod-glow"></div>
-                        < !-- Floating info pills -->
-                            <div class="hero-pill pill-1">
-                                <div class="dot" style="background:#2bbfa5;"></div>Hypoallergenic
-                            </div>
-                            <div class="hero-pill pill-2">
-                                <div class="dot" style="background:#c8963e;"></div>Long-Lasting Fragrance
-                            </div>
-                            <div class="hero-pill pill-3">
-                                <div class="dot" style="background:#0e6655;"></div>All Machine Compatible
-                            </div>
-                            < !-- Pod SVG -->
-                                <div class="pod-main"><svg class="pod-svg" viewBox="0 0 160 160"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <radialGradient id="podGrad" cx="38%" cy="32%" r="65%">
-                                                <stop offset="0%" stop-color="#5ce6d1" />
-                                                <stop offset="55%" stop-color="#1a8a73" />
-                                                <stop offset="100%" stop-color="#0b4f41" />
-                                            </radialGradient>
-                                            <radialGradient id="podShine" cx="30%" cy="25%" r="50%">
-                                                <stop offset="0%" stop-color="rgba(255,255,255,0.55)" />
-                                                <stop offset="100%" stop-color="rgba(255,255,255,0)" />
-                                            </radialGradient>
-                                            <radialGradient id="liquidGrad" cx="50%" cy="40%" r="55%">
-                                                <stop offset="0%" stop-color="#f5e8d0" />
-                                                <stop offset="100%" stop-color="#c8963e" />
-                                            </radialGradient>
-                                        </defs>
-                                        < !-- Pod body -->
-                                            <ellipse cx="80" cy="88" rx="60" ry="62" fill="url(#podGrad)" />
-                                            < !-- Pod top dome -->
-                                                <ellipse cx="80" cy="38" rx="40" ry="30" fill="url(#podGrad)" />
-                                                < !-- Pod neck -->
-                                                    <rect x="42" y="36" width="76" height="16" rx="4" fill="#1a8a73" />
-                                                    < !-- Shine overlay -->
-                                                        <ellipse cx="80" cy="80" rx="60" ry="62"
-                                                            fill="url(#podShine)" />
-                                                        < !-- Liquid window -->
-                                                            <ellipse cx="80" cy="95" rx="30" ry="26"
-                                                                fill="url(#liquidGrad)" opacity="0.85" />
-                                                            < !-- Liquid shine -->
-                                                                <ellipse cx="72" cy="85" rx="10" ry="7"
-                                                                    fill="rgba(255,255,255,0.35)"
-                                                                    transform="rotate(-20,72,85)" />
-                                                                < !-- Dew drop logo mark -->
-                                                                    <ellipse cx="80" cy="60" rx="6" ry="9"
-                                                                        fill="rgba(255,255,255,0.6)" />
-                                                                    <ellipse cx="80" cy="57" rx="3" ry="2.5"
-                                                                        fill="rgba(255,255,255,0.9)" />
-                                    </svg></div>
-                                < !-- Bubbles -->
-                                    <div class="bubble b1"></div>
-                                    <div class="bubble b2"></div>
-                                    <div class="bubble b3"></div>
-                                    <div class="bubble b4"></div>
-                                    <div class="bubble b5"></div>
-                                    <div class="bubble b6"></div>
-                    </div>
-                </div>
-            </section>
-            < !-- TRUST STRIP -->
-                <div class="trust-strip">
-                    <div class="trust-item"><span class="trust-icon">🇮🇳</span>Free Shipping Across India </div>
-                    <div class="trust-item"><span class="trust-icon">✦</span>Zero Harsh Chemicals </div>
-                    <div class="trust-item"><span class="trust-icon">✦</span>Dermatologist Tested </div>
-                    <div class="trust-item"><span class="trust-icon">✦</span>Eco-Friendly Formula </div>
-                </div>
-                < !-- FEATURES -->
-                    <section class="features" id="features">
-                        <div style="max-width:960px; margin:0 auto;">
-                            <p class="section-label reveal">Why Dew Drops</p>
-                            <h2 class="section-title reveal">Every wash,
-                                <strong>a fresh start.</strong>
-                            </h2>
-                            <p class="section-sub reveal">Crafted for Indian households,
-                                Dew Drops Pods combine powerful cleaning science with skin-gentle ingredients — no
-                                compromises,
-                                just clean clothes every time.</p>
-                            <div class="features-grid">
-                                <div class="feat-card reveal">
-                                    <div class="feat-icon-wrap">🌿</div>
-                                    <div class="feat-title">No Allergies</div>
-                                    <p class="feat-desc">Formulated free from harsh irritants and artificial
-                                        allergens — safe for the whole family,
-                                        including babies and sensitive skin.</p>
-                                </div>
-                                <div class="feat-card reveal">
-                                    <div class="feat-icon-wrap">🌸</div>
-                                    <div class="feat-title">Fresh Fragrance</div>
-                                    <p class="feat-desc">A long-lasting,
-                                        naturally inspired scent that keeps your clothes smelling fresh for hours
-                                        after every wash cycle.</p>
-                                </div>
-                                <div class="feat-card reveal">
-                                    <div class="feat-icon-wrap">✨</div>
-                                    <div class="feat-title">Brilliant Shine</div>
-                                    <p class="feat-desc">Our brightening agents restore fabric radiance and help
-                                        maintain colour vibrancy,
-                                        wash after wash after wash.</p>
-                                </div>
-                                <div class="feat-card reveal">
-                                    <div class="feat-icon-wrap">🔬</div>
-                                    <div class="feat-title">Precision Clean</div>
-                                    <p class="feat-desc">Concentrated pod formula dissolves fast and targets stains
-                                        at the fibre level — no pre-soaking needed.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    < !-- HOW IT WORKS -->
-                        <section class="how" id="how">
-                            <div style="max-width:840px; margin:0 auto;">
-                                <p class="section-label text-center reveal">How It Works</p>
-                                <h2 class="section-title text-center reveal">Three steps. <strong>One pod.</strong>
-                                </h2>
-                                <div class="steps">
-                                    <div class="step reveal">
-                                        <div class="step-num">01</div>
-                                        <div class="step-title">Drop It In</div>
-                                        <p class="step-desc">Place one Dew Drops Pod directly into your washing
-                                            machine drum before loading clothes — no measuring,
-                                            no mess.</p>
-                                    </div>
-                                    <div class="step reveal">
-                                        <div class="step-num">02</div>
-                                        <div class="step-title">Load & Start</div>
-                                        <p class="step-desc">Add your clothes on top,
-                                            choose your cycle,
-                                            and press start. The pod dissolves instantly in any water temperature.
-                                        </p>
-                                    </div>
-                                    <div class="step reveal">
-                                        <div class="step-num">03</div>
-                                        <div class="step-title">Enjoy Clean</div>
-                                        <p class="step-desc">Unload fresh-smelling,
-                                            visibly bright clothes. No residue. No repeat wash needed. Just
-                                            effortless clean.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        < !-- COMPAT BANNER -->
-                            <div class="compat">
-                                <div class="compat-inner">
-                                    <div class="reveal">
-                                        <p class="section-label" style="color:var(--aqua);">Universal Compatibility
-                                        </p>
-                                        <h2 class="compat-title">Works with <strong>every machine</strong>you own.
-                                        </h2>
-                                        <p class="compat-sub">Whether you have a budget top-loader or a premium
-                                            front-loader,
-                                            Dew Drops Pods are engineered to deliver perfect results in all washing
-                                            machine types available in India.</p>
-                                    </div>
-                                    <div class="machine-list reveal">
-                                        <div class="machine-item"><span class="machine-ico">🔄</span>
-                                            <div class="machine-name">Front Load<small>HE Compatible</small></div>
-                                        </div>
-                                        <div class="machine-item"><span class="machine-ico">⬆️</span>
-                                            <div class="machine-name">Top Load<small>All drum sizes</small></div>
-                                        </div>
-                                        <div class="machine-item"><span class="machine-ico">💧</span>
-                                            <div class="machine-name">Semi-Auto<small>Soaker drum</small></div>
-                                        </div>
-                                        <div class="machine-item"><span class="machine-ico">🌡️</span>
-                                            <div class="machine-name">Cold & Hot<small>All temperatures</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            < !-- SHIPPING -->
-                                <section class="shipping" id="shipping">
-                                    <div class="shipping-inner reveal">
-                                        <div>
-                                            <p class="ship-label">Delivery Promise</p>
-                                            <h2 class="ship-title">Free shipping <span>all over India.</span></h2>
-                                            <p class="ship-desc">From Kashmir to Kanyakumari — every order ships
-                                                free,
-                                                fast,
-                                                and safely right to your doorstep. No minimum order. No hidden
-                                                charges. Ever.</p>
-                                        </div>
-                                        <div class="ship-badge"><span class="big">₹0</span>Delivery<br />Anywhere in
-                                            India </div>
-                                    </div>
-                                </section>
-                                < !-- ASSURANCE -->
-                                    <section class="assurance">
-                                        <p class="section-label text-center reveal">Our Promise</p>
-                                        <h2 class="section-title text-center reveal">Numbers that <strong>speak for
-                                                themselves.</strong></h2>
-                                        <div class="assurance-grid">
-                                            <div class="assure-item reveal">
-                                                <div class="assure-num">100%</div>
-                                                <div class="assure-label">Hypoallergenic formula — safe for all skin
-                                                    types and ages</div>
-                                            </div>
-                                            <div class="assure-item reveal">
-                                                <div class="assure-num">1</div>
-                                                <div class="assure-label">Pod per wash. No more measuring,
-                                                    no more guessing</div>
-                                            </div>
-                                            <div class="assure-item reveal">
-                                                <div class="assure-num">0</div>
-                                                <div class="assure-label">Delivery charges anywhere in India —
-                                                    always free</div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    < !-- CTA -->
-                                        <section class="cta-section" id="cta">
-                                            <div class="cta-bg b1"></div>
-                                            <div class="cta-bg b2"></div>
-                                            <h2 class="reveal">Ready to feel the <em>difference?</em></h2>
-                                            <p class="reveal">Join thousands of Indian households who have switched
-                                                to Dew Drops Pods — cleaner,
-                                                gentler,
-                                                simpler laundry every single day.</p><a href="#"
-                                                class="btn-white reveal">Order Your First Pack →</a>
-                                        </section>
-                                        < !-- FOOTER -->
-                                            <footer>
-                                                <div class="foot-logo">Dew <span>Drops</span>Pods</div>
-                                                <div>© 2026 Dew Drops Pods. All rights reserved.</div>
-                                                <div class="foot-links"><a href="#">Privacy Policy</a><a
-                                                        href="#">Terms</a><a href="#">Contact Us</a></div>
-                                            </footer>
-                                            <script>const observer = new IntersectionObserver((entries) => {
-                                                    entries.forEach((e, i) => {
-                                                        if (e.isIntersecting) {
-                                                            setTimeout(() => e.target.classList.add('visible'), i * 60);
-                                                            observer.unobserve(e.target);
-                                                        }
-                                                    });
-                                                }
 
-                                                    , {
-                                                        threshold: 0.12
-                                                    });
+	<!-- NAV -->
+	<nav>
+		<div class="nav-logo">Dew Drops Pods</div>
+		<div class="menu-toggle">☰</div>
+		<div class="nav-links">
+			<a href="#features">Features</a>
+			<a href="#pricing">Pricing</a>
+			<a href="#faq">FAQ</a>
+			<a href="#cta" class="nav-cta">Buy</a>
+		</div>
+	</nav>
 
-                                                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-                                            </script>
+	<!-- HERO -->
+	<section class="hero">
+		<h1>Dew Drops Pods</h1>
+		<p class="hero-tagline">Precision clean. Naturally gentle.</p>
+		<p class="hero-sub">
+			One pod. Zero guesswork. Tough on stains, gentle on skin.
+		</p>
+
+		<div class="hero-actions">
+			<a href="#pricing" class="btn btn-primary">Shop Now</a>
+			<a href="#features" class="btn btn-outline">Learn More</a>
+		</div>
+	</section>
+
+	<!-- TRUST -->
+	<div class="trust">★ 4.8/5 from 2,000+ happy customers</div>
+
+	<!-- FEATURES -->
+	<section id="features">
+		<h2 class="section-title">Why Dew Drops?</h2>
+
+		<div class="features-grid">
+			<div class="card">🌿 No Harsh Chemicals</div>
+			<div class="card">✨ Powerful Cleaning</div>
+			<div class="card">🌸 Fresh Fragrance</div>
+			<div class="card">🔬 Precision Pods</div>
+		</div>
+	</section>
+
+	<!-- PRICING -->
+	<section id="pricing">
+		<h2 class="section-title">Choose your pack</h2>
+
+		<div class="pricing-grid">
+			<div class="card">
+				<h3>Starter</h3>
+				<p>15 Pods</p>
+				<div class="price">₹299</div>
+				<a href="#" class="btn btn-primary">Buy</a>
+			</div>
+
+			<div class="card">
+				<h3>Family</h3>
+				<p>30 Pods</p>
+				<div class="price">₹549</div>
+				<a href="#" class="btn btn-primary">Buy</a>
+			</div>
+
+			<div class="card">
+				<h3>Value</h3>
+				<p>60 Pods</p>
+				<div class="price">₹999</div>
+				<a href="#" class="btn btn-primary">Buy</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section id="faq">
+		<h2 class="section-title">FAQs</h2>
+
+		<p><strong>Is it safe for skin?</strong><br>Yes, hypoallergenic.</p>
+		<br>
+		<p><strong>Works in all machines?</strong><br>Yes.</p>
+		<br>
+		<p><strong>Need extra detergent?</strong><br>No.</p>
+	</section>
+
+	<!-- CTA -->
+	<section class="cta" id="cta">
+		<h2>Switch to smarter laundry</h2>
+		<p>No mess. No measuring.</p>
+		<a href="#">Try Now → ₹299</a>
+	</section>
+
+	<!-- FOOTER -->
+	<footer>
+		© 2026 Dew Drops Pods
+	</footer>
+
+	<script>
+		const toggle = document.querySelector('.menu-toggle');
+		const nav = document.querySelector('.nav-links');
+
+		toggle.onclick = () => nav.classList.toggle('active');
+	</script>
+
 </body>
 
 </html>
