@@ -1081,3 +1081,35 @@ footer .foot-links a:hover {
         display: flex;
     }
 }
+
+.foot-social {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 12px 0;
+}
+
+.foot-social a {
+    color: currentColor;
+    font-size: 22px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.foot-social a:hover {
+    opacity: 1;
+}
+
+.foot-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    justify-content: center;
+    margin: 12px 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.foot-contact i {
+    margin-right: 6px;
+}
